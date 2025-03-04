@@ -44,6 +44,8 @@
     @apply bg-background text-foreground;
     overflow-x: hidden;
     position: relative;
+    background-image: radial-gradient(circle at 25% 25%, rgba(139, 92, 246, 0.03) 2px, transparent 2px),
+    radial-gradient(circle at 75% 75%, rgba(217, 70, 239, 0.03) 2px, transparent 2px);
     background-size: 60px 60px;
     background-position: 0 0;
     animation: backgroundShift 60s linear infinite;
@@ -134,7 +136,7 @@
 .grid-background {
   background-size: 50px 50px;
   background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
   background-position: center center;
 }
 
@@ -319,24 +321,17 @@
 
 /* Efecto de textura */
 .texture-overlay {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%239C92AC' fill-opacity='0.2' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
-  opacity: 0.5;
-  animation: texture-shift 30s linear infinite;
-}
-
-@keyframes texture-shift {
-  0% {
-    background-position: 0 0;
-  }
-  100% {
-    background-position: 100px 100px;
-  }
+  background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239C92AC' fill-opacity='0.4'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 8px 8px;
+  opacity: 0.1;
+  animation: pattern-shift 40s linear infinite;
 }
 
 /* Patrón de puntos */
 .pattern-dots {
-  background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239C92AC' fill-opacity='0.15' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='1'/%3E%3Ccircle cx='13' cy='13' r='1'/%3E%3C/g%3E%3C/svg%3E");
-  opacity: 0.8;
+  background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239C92AC' fill-opacity='0.3'%3E%3Ccircle cx='3' cy='3' r='1'/%3E%3Ccircle cx='13' cy='13' r='1'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 20px 20px;
+  opacity: 0.15;
   animation: pattern-shift 40s linear infinite;
 }
 
@@ -345,7 +340,7 @@
     background-position: 0 0;
   }
   100% {
-    background-position: 200px 200px;
+    background-position: 100px 100px;
   }
 }
 
@@ -405,11 +400,11 @@
   width: 100%;
   height: 300%;
   background: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 1px,
-    rgba(255, 255, 255, 0.1) 1px,
-    rgba(255, 255, 255, 0.1) 2px
+          0deg,
+          transparent,
+          transparent 1px,
+          rgba(255, 255, 255, 0.1) 1px,
+          rgba(255, 255, 255, 0.1) 2px
   );
   animation: noise-animation 8s infinite linear;
 }
@@ -421,5 +416,11 @@
   100% {
     transform: translateY(-66.66%);
   }
+}
+
+/* Efecto de ruido */
+.bg-noise {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.15;
 }
 
